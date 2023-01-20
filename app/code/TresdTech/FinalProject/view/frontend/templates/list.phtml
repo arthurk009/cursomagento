@@ -1,0 +1,49 @@
+
+<h1>Registros</h1>
+<style>
+table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
+tr:nth-child(even) { background-color: #dddddd; }
+.post-id{width:2%} .post-name{width:30%}
+
+</style>
+<div class="page-main-actions">    
+        <div class="primary">
+            <a href="<?php echo $this->getUrl('finalproject/index/booking');?>" class="action primary">Ingresar Registro</a>
+        </div>
+</div>
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <thead>
+            <tr>
+                <th class="book-name">First Name</th>
+                <th class="last_name">Last Name</th>
+                <th class="book_email">Email</th>
+                <th class="book_phone">Telephone</th>
+            </tr>
+        </thead>
+    <?php
+    if(count($block->getPostCollection())>0){
+        foreach ($block->getPostCollection() as $key=>$post){
+            echo '<tr>
+                    <td>'.$post->getFisrtName().'</td>
+                    <td>'.$post->getLastName().'</td>
+                    <td>'.$post->getEmail().'</td>
+                    <td>'.$post->getTelephone().'</td>
+                    
+                  </tr>';
+        }
+    }else{
+            echo '<tr>
+                    <td colspan="4"><center>No se encontraron registros</center></td>
+                </tr>';
+    } 
+    ?>
+    </div>
+</table>
+<!-- 
+<div class="actions-toolbar">
+        
+    </div> -->
+</body>
+</html>
