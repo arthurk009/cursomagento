@@ -1,7 +1,7 @@
 <?php
-namespace Mentorias\Vacuna\Controller\Step1;
+namespace Mentorias\Vacuna\Controller\Index;
 
-class Index extends \Magento\Framework\App\Action\Action
+class Step1 extends \Magento\Framework\App\Action\Action
 {
 	protected $_pageFactory;
 	public function __construct(
