@@ -1,0 +1,147 @@
+
+<div class="container">
+<form class="form create account form-create-account" method="post" id="form-validate"  autocomplete="off"  action="<?php echo $block->getFormStep3Action(); ?>" data-mage-init='{"validation": {}}'>
+
+<table style="width: 100%;">
+    <tr>
+        <td width="50%">
+            <fieldset class="fieldset create info">
+                <legend class="legend"><span>Datos del paciente</span></legend><br>
+
+                    <div class="field field-name-curp required">
+                        <label class="label" for="curp"><span>CURP</span></label>
+                        <div class="control">
+                            <input type="text" id="curp" name="curp" value="" title="Dirección" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-nombre required">
+                        <label class="label" for="nombre"><span>Nombre</span></label>
+                        <div class="control">
+                            <input type="text" id="name" name="name" value="" title="Nombre" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-lastName required">
+                        <label class="label" for="lastName"><span>Apellido paterno</span></label>
+                        <div class="control">
+                            <input type="text" id="lastname" name="lastname" value="" title="Apellido paterno" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-second_lastname required">
+                        <label class="label" for="second_lastname"><span>Apellido Materno</span></label>
+                        <div class="control">
+                            <input type="text" id="second_lastname" name="second_lastname" value="" title="Apellido Materno" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    
+                    <div class="field field-name-dia required">
+                        <label class="label" for="day"><span>Fecha de nacimiento</span></label>
+                        <div class="control">
+                            <!-- <input type="text" id="dia" name="dia" value="" title="Día" class="input-text" data-validate="{required:true}" autocomplete="off" aria-required="true"> -->
+                            <input name="birthdate" id="datepicker" title="Fecha de nacimiento" value="" type="text">
+                            <script type="text/javascript">
+                            require([
+                                "jquery",
+                                "mage/calendar"
+                                ], function($){
+                                $('#datepicker').datepicker();
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    
+                    <div class="field field-name-phone required">
+                        <label class="label" for="phone"><span>Teléfonoo</span></label>
+                        <div class="control">
+                            <input type="text" id="phone" name="phone" value="" title="Teléfono" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-gender required">
+                        <label class="label" for="gender"><span>Género</span></label>
+                        <div class="control">
+                            <select id="gender" name="gender">
+                                <option value="1">Masculino</option>
+                                <option value="2">Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+            </fieldset>
+
+        </td>
+        <td width="50%">
+        <fieldset class="fieldset create info">
+                <legend class="legend"><span>Dirección</span></legend><br>
+
+                    <div class="field field-name-zip_code required">
+                        <label class="label" for="zip_code"><span>cp</span></label>
+                        <div class="control">
+                            <input type="text" id="zip_code" name="zip_code" value="" title="Código Postal" class="input-text required-entry validate-number" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-nombre required">
+                        <label class="label" for="street"><span>Calle</span></label>
+                        <div class="control">
+                            <input type="text" id="street" name="street" value="" title="Calle" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-ext_num required">
+                        <label class="label" for="ext_num"><span>Número exterior</span></label>
+                        <div class="control">
+                            <input type="text" id="ext_num" name="ext_num" value="" title="Número exterior" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-number required">
+                        <label class="label" for="num_int"><span>Número interior</span></label>
+                        <div class="control">
+                            <input type="text" id="num_int" name="num_int" value="" title="Número interior" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-neighborhood required">
+                        <label class="label" for="neighborhood"><span>Colonia</span></label>
+                        <div class="control">
+                            <input type="text" id="neighborhood" name="neighborhood" value="" title="Colonia" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field field-name-nombre required">
+                        <label class="label" for="municipality"><span>Muncipio</span></label>
+                        <div class="control">
+                            <input type="text" id="municipality" name="municipality" value="" title="Municipio" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                        </div>
+                    </div>
+                    
+                    <div class="field field-name-region required">
+                        <label class="label" for="region"><span>Estado</span></label>
+                        <div class="control">
+                            <select id="region" name="region">
+                                <option value="1">Aguascalientes</option>
+                                <option value="2">Baja california</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+            </fieldset>
+
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action submit primary" title="Next">
+                    <span>Siguiente</span>
+                </button>
+            </div>
+        </div>
+        </td>
+    </tr>
+
+
+
+    
+
+
+    
+</table>
+</form>
+</div>
