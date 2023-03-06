@@ -4,7 +4,7 @@
         
         <referenceContainer name="content">
             <block class="Mentorias\Vacuna\Block\Header" name="Mentorias_Vacuna_Header" template="Mentorias_Vacuna::header.phtml" />
-            <block class="Mentorias\Vacuna\Block\Step1" name="Mentorias_Vacuna_Step1" template="Mentorias_Vacuna::step1.phtml" />
+            <block class="Mentorias\Vacuna\Block\Step1" name="Mentorias_Vacuna_Step2" template="Mentorias_Vacuna::step2.phtml" />
         </referenceContainer>
     </body>
 </page>

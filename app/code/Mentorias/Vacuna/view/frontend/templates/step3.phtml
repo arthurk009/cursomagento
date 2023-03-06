@@ -1,0 +1,49 @@
+
+<?php 
+$helper = $this->helper('Mentorias\Vacuna\Helper\Data');
+$dataStep1 = $helper->getInformationVacuna('step1');
+$dataStep2 = $helper->getInformationVacuna('step2');
+
+
+?>
+
+<p>sucursal: <b></b></p>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8 offset-md-2 block border">
+    <h2 style="text-align: center;"><b>¡ Gracias, tu información ha sido enviada con éxito !</b></h2>
+    <br>
+    <h3 style="text-align: center;"><b>Te confirmamos los datos de tu cita:</b></h3>
+    <br>
+    <div  style="text-align: center;">
+        <span>El folio de tu cita es: <b><?php echo $block->getFolioSession(); ?></b></span>
+    </div>
+    <br>
+    <div  style="text-align: center;">
+        <span>Fecha y hora de cita: <b><?=$dataStep1->day?> <?=$dataStep1->hour?></b></span>
+    </div>
+
+
+  </div>
+</div>
+<hr>
+<br>
+<div class="row" style="text-align: center;">
+    <form class="form " method="post" id="form-validate"  autocomplete="off"  action="<?php echo $block->getFormFinishAction(); ?>">
+        <div class="controls">
+            <h3>Seleccione método de pago</h3>
+            <br>
+            <input type="radio" name="group" /> Tarjeta  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="group" checked /> En sucursal
+        </div>
+        <br>
+                            <div class="primary" >
+                                <button type="submit"  class="action submit primary" title="Next">
+                                    <span>Siguiente</span>
+                                </button>
+                            </div>
+                
+                    
+            
+    </form>
+</div>
