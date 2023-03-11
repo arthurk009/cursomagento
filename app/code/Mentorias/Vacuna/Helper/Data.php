@@ -8,6 +8,7 @@ class Data extends AbstractHelper
 
     protected $_customerSession;
     protected $productRepository;
+    const SKUID ='20230228COVINF';
 
     
     public function __construct(
@@ -22,6 +23,15 @@ class Data extends AbstractHelper
     public function getInformationVacuna($step ='step1')
     {
             return $this->_customerSession->getData($step);
+    }
+
+    /** 
+     * @param array $myarray
+     * @return string
+    */
+    public function getVacunaSku(): string
+    {
+        return self::SKUID;
     }
 
     public function getVacunaProduct(){

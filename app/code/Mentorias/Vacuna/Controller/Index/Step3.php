@@ -15,7 +15,6 @@ class Step3 extends \Magento\Framework\App\Action\Action
 		\Magento\Customer\Model\Session $session,
 		\Magento\Framework\Controller\ResultFactory $resultFactory,
 		\Mentorias\Vacuna\Model\VacunaFactory $postFactory
-		//\Magento\Customer\Model\Session $customerSession
 		)
 	{
 		$this->_pageFactory = $pageFactory;
@@ -41,9 +40,6 @@ class Step3 extends \Magento\Framework\App\Action\Action
 		 ) {
           		
 			$this->_customerSession->setData('step2', $this->getRequest()->getPost());
-			// $algo = $this->_customerSession->getData('step2')->toArray();
-			// print_r($algo);
-			// echo $algo->curp;
 			
 			$folio = "VAC-".date('YmdHis').rand(10,100);
 			$this->_customerSession->setVacunaFolio($folio); 
