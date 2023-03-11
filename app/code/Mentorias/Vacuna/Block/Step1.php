@@ -19,13 +19,11 @@ class Step1 extends \Magento\Framework\View\Element\Template
 
 	public function sayHello()
 	{
-        
 		return __('Hello World');
 	}
 
 	public function getFormAction()
     {
-            
         return $this->getUrl('vacuna/index/step2', ['_secure' => true]);
     }
 
@@ -35,13 +33,11 @@ class Step1 extends \Magento\Framework\View\Element\Template
 
     public function getFormStep3Action()
     {
-            
         return $this->getUrl('vacuna/index/step3', ['_secure' => true]);
     }
 
     public function getFolioSession()
     {
-            
         return $this->_customerSession->getVacunaFolio(); 
     }
 
