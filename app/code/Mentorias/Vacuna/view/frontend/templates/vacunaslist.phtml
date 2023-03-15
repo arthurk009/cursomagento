@@ -1,1 +1,64 @@
 <h2>Listado de vacunas</h2>
+<div id="modal-content" style="display:none;">
+<form class="form create account form-create-account" method="post" id="form-validate"  autocomplete="off"  action="<?php echo $block->getFormAction(); ?>" data-mage-init='{"validation": {}}'>
+    <fieldset class="fieldset create info">
+        <legend class="legend"><span>Datos de la cita</span></legend><br>
+            <div class="field field-name-dia required">
+                <label class="label" for="day"><span>Día</span></label>
+                <div class="control">
+                    <input name="day" id="datepicker" title="Fecha de cita" value="" type="text">
+                </div>
+            </div>
+            <div class="field field-name-hora required">
+                <label class="label" for="hour"><span>Hora</span></label>
+                <div class="control">
+                    <input type="time" id="hour" name="hour" value="" title="Hora" class="input-text" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                </div>
+            </div>
+    </fieldset>
+</form>
+</div>
+
+
+<style>
+table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
+tr:nth-child(even) { background-color: #dddddd; }
+.post-id{width:2%} .post-name{width:30%}
+
+</style>
+
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <thead>
+            <tr>
+                <th class="book-name">Folio</th>
+                <th class="last_name">Consultorio</th>
+                <th class="book_email">Fecha / hora </th>
+                <th class="book_phone">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                if(count($block->getPostCollection())>0){
+                    foreach ($block->getPostCollection() as $key=>$post){
+                        echo '<tr>
+                                
+                                <td>'.$post->getName().'</td>
+                                <td>'.$post->getConsultorioId().'</td>
+                                <td>'.$post->getDateTime().'</td>
+                                <td>
+                                    <button class="edit click-me">Editar</button>
+                                    <a href="" class="delete">Eliminar</a>
+                                </td>
+                            </tr>';
+                    }
+                }else{
+                        echo '<tr>
+                                <td colspan="4"><center>No se encontraron registros</center></td>
+                            </tr>';
+                } 
+                ?>
+        </tbody>
+    </table>    
+</div>    
