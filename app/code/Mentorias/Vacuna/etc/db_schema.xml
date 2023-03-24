@@ -43,4 +43,12 @@
 		<column name="created_at" nullable="false" xsi:type="timestamp" comment="created_at" default="CURRENT_TIMESTAMP"/>
 		<column name="updated_at" nullable="true" xsi:type="timestamp" comment="updated_at" default="CURRENT_TIMESTAMP" on_update="true"/>
 	</table>
+	<table name="mentorias_vacuna_consultorio" resource="default" engine="innodb" comment="mentorias_vacuna_consultorio Table">
+		<column xsi:type="int" name="consultorio_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="consultorio_id"/>
+		</constraint>
+		<column name="consultorio_name" nullable="true" xsi:type="varchar" comment="consultorio_name" length="255"/>
+		<column name="state_id" nullable="true" xsi:type="int" comment="state_id" identity="false"/>
+	</table>
 </schema>
