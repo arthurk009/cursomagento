@@ -6,4 +6,10 @@
 			<resource ref="anonymous"/>
 		</resources>
 	</route>
+	<route url="/V1/mentorias-vacuna/vacunaapi" method="POST">
+		<service class="Mentorias\Vacuna\Api\VacunaApiManagementInterface" method="postVacunaApi"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
 </routes>

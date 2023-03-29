@@ -1,4 +1,12 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	<preference for="Mentorias\Vacuna\Api\ConsultorioApiManagementInterface" type="Mentorias\Vacuna\Model\ConsultorioApiManagement"/>
+	<preference for="Mentorias\Vacuna\Api\ConsultorioRepositoryInterface" type="Mentorias\Vacuna\Model\ConsultorioRepository" />
+    <preference for="Mentorias\Vacuna\Api\Data\ConsultorioInterface" type="Mentorias\Vacuna\Model\Consultorio" />
+    <preference for="Mentorias\Vacuna\Api\Data\ConsultorioSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mentorias\Vacuna\Api\VacunaApiManagementInterface" type="Mentorias\Vacuna\Model\VacunaApiManagement"/>
+	<preference for="Mentorias\Vacuna\Api\VacunaRepositoryInterface" type="Mentorias\Vacuna\Model\VacunaRepository" />
+    <preference for="Mentorias\Vacuna\Api\Data\VacunaInterface" type="Mentorias\Vacuna\Model\Vacuna" />
+    <preference for="Mentorias\Vacuna\Api\Data\VacunaSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
 </config>

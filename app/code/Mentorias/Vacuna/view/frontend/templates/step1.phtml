@@ -5,6 +5,7 @@ require([
     "jquery",
     "mage/calendar"
 ], function($){
+    $("#step1").addClass('active'); 
   $('#datepicker').datepicker({
        prevText: '&#x3c;zurück', prevStatus: '',
         prevJumpText: '&#x3c;&#x3c;', prevJumpStatus: '',
@@ -22,9 +23,42 @@ require([
     } 
   );
 
+        $("#state_id").on('change',function(){ 
+            let comboValue = $(this).val();
+            if(comboValue !=''){
+                urlApi = BASE_URL + 'rest/V1/mentorias-vacuna/consultorioapi';
+                    $.ajax({
+                        url: urlApi,
+                        data: JSON.stringify({'estadoId': comboValue}),
+                        type: 'POST',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        processData: false,
+                        success: function(response){
+                            let parsedJSON = JSON.parse(response);
+                            $('#consultorio_id').find('option').remove();
+                            $.each(parsedJSON, function(i, item) {
+                                $('#consultorio_id').append('<option value='+i+'>'+item+'</option>');
+                            });
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.log("error");
+                            console.log(errorThrown);
+                        }
+                    });
+
+            }else{
+                $('#consultorio_id').find('option').remove();
+            }
+                    
+        });
+
+            
+
   
 });
 </script>
+
 <form class="form create account form-create-account" method="post" id="form-validate"  autocomplete="off"  action="<?php echo $block->getFormAction(); ?>" data-mage-init='{"validation": {}}'>
     <fieldset class="fieldset create info">
         <legend class="legend"><span>Datos de la cita</span></legend><br>
@@ -39,6 +73,16 @@ require([
                 <label class="label" for="lastname"><span>Email</span></label>
                 <div class="control">
                     <input type="text" id="email" name="email" value="" title="Teléfono" class="input-text required-entry validate-email" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                </div>
+            </div>
+            <div class="field field-name-state_id required">
+                <label class="label" for="state_id"><span>Seleccione estado</span></label>
+                <div class="control">
+                <select id="state_id" name="state_id">
+                                <option value="">-- Seleccione --</option>
+                                <option value="1">Aguascalientes</option>
+                                <option value="2">Baja california</option>
+                </select>
                 </div>
             </div>
             <div class="field field-name-consultorio_id required">
@@ -85,9 +129,3 @@ require([
         </div>
     </div>
 </form>
-<script type="text/javascript">
-
-    $("#step1").addClass('active');
-   
-
-</script>
