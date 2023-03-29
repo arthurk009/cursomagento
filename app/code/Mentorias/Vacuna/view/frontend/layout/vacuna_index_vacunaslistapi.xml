@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+            <link src="Mentorias_Vacuna::js/vacunaList.js" />
+
+    </head>
+    <body>
+        
+        <referenceContainer name="content">
+            <block class="Mentorias\Vacuna\Block\VacunasListApi" name="Mentorias_Vacuna_Header1" template="Mentorias_Vacuna::vacunaslistapi.phtml" />
+        </referenceContainer>
+    </body>
+</page>

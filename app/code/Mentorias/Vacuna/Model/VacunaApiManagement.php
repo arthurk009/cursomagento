@@ -7,14 +7,13 @@ declare(strict_types=1);
 
 namespace Mentorias\Vacuna\Model;
 
-
-class ConsultorioApiManagement implements \Mentorias\Vacuna\Api\ConsultorioApiManagementInterface
+class VacunaApiManagement implements \Mentorias\Vacuna\Api\VacunaApiManagementInterface
 {
 
     //protected $_postFactory;
     protected $searchCriteriaBuilder;
     protected $filterBuilder;
-    protected $consultorioRepository;
+    protected $vacunaRepository;
     private $resultJsonFactory;
     protected $postFactory;
 
@@ -23,50 +22,47 @@ class ConsultorioApiManagement implements \Mentorias\Vacuna\Api\ConsultorioApiMa
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
      */
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
-        \Mentorias\Vacuna\Model\ConsultorioFactory $postFactory,
-        //\Mentorias\Vacuna\Model\ConsultorioRepository $consultorioRepository,
-        \Mentorias\Vacuna\Api\ConsultorioRepositoryInterface $consultorioRepository,
+        // \Magento\Framework\App\Action\Context $context,
+        // \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
+        \Mentorias\Vacuna\Model\VacunaFactory $postFactory,
+        \Mentorias\Vacuna\Api\VacunaRepositoryInterface $vacunaRepository,
         \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
         \Magento\Framework\Api\FilterBuilder $filterBuilder
      )
      {
-         $this->resultJsonFactory = $resultJsonFactory;
+        //  $this->resultJsonFactory = $resultJsonFactory;
          $this->postFactory = $postFactory;
-         $this->consultorioRepository = $consultorioRepository;
+         $this->vacunaRepository = $vacunaRepository;
          $this->searchCriteriaBuilder = $searchCriteriaBuilder;
          $this->filterBuilder = $filterBuilder;
      }
 
-    
-
     /**
-     * 
-     *
-     * @return \Magento\Framework\Controller\Result\JsonFactory
+     * {@inheritdoc}
      */
-    public function postConsultorioApi($estadoId)
+    public function postVacunaApi()
     {
-       
+        //return 'hello api POST return the $param ' . $param;
+
         $filter[] = $this->filterBuilder
-        ->setField('state_id')
-        ->setConditionType('eq')
-        ->setValue($estadoId)
+        ->setField('name')
+        ->setConditionType('neq')
+        ->setValue('')
         ->create();
      
         //Agregamos el filtro al objeto searchCriteria.
         $searchCriteria = $this->searchCriteriaBuilder->addFilters($filter);
         
         //Construimos la instancia del criterio de búsqueda y lo inyectamos en el método de listado del repositorio.
-        $searchResults = $this->consultorioRepository->getList($searchCriteria->create())->getItems();
+        $searchResults = $this->vacunaRepository->getList($searchCriteria->create())->getItems();
 
         $result = array();
         foreach ($searchResults as $product){
-            $result[$product->getConsultorioId()]=$product->getConsultorioName();
+            $result[]=$product->getData();
+            //$result[$product->getConsultorioId()]=$product->getConsultorioName();
         }
 
         return json_encode($result);
-
+    
     }
 }
